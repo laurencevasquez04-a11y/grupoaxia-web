@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Grupo Axia S.A.S — Mantenimiento y obras civiles</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mantenimiento de propiedad horizontal, obras civiles e hidrosanitarias en Bogotá. Técnica, cumplimiento y garantía.">
+  <meta name="description" content="Mantenimiento de propiedad horizontal, obras civiles e hidrosanitarias en Bogotá y municipios aledaños. Técnica, cumplimiento y garantía.">
   <link rel="icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
 
@@ -17,41 +17,93 @@
       --brand:#111827;
       --accent:#F97316;
       --max:1100px;
+
       --blue:#1F2937;
       --blue-2:#111827;
       --blue-3:#0B1220;
+      --deep:#020617;
+      --line-dark:#1F2632;
+
+      /* WhatsApp */
+      --wa:#25D366;
+      --wa-dark:#1DA851;
+      --wa-darker:#168a43;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;background:var(--bg);color:var(--text);line-height:1.6}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6
+    }
 
-    /* ===== Header ===== */
-    header{position:sticky;top:0;background:var(--blue);z-index:10}
+    /* ===== Header (unificado estilo "Servicios") ===== */
+    header{
+      position:sticky;
+      top:0;
+      background:linear-gradient(180deg,#0B1220 0%, #111827 100%);
+      z-index:10;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
     .wrap{max-width:var(--max);margin:auto;padding:0 16px}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:60px;width:auto;display:block}
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:86px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+    .brand img{height:56px;width:auto;display:block}
     .brand-title{
       font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
       font-weight:700;
       letter-spacing:.2px;
       color:#FFFFFF;
-      font-size:1.6rem;
+      font-size:1.55rem;
       line-height:1;
       white-space:nowrap;
     }
     nav a{
       color:#F8FAFC;
       text-decoration:none;
-      margin-left:16px;
+      margin-left:18px;
       font-weight:600;
-      font-size:.98rem;
+      font-size:1rem;
     }
     nav a:hover{color:var(--accent)}
 
-    /* ===== Hero ===== */
-    .hero{padding:72px 16px 48px;background:linear-gradient(180deg,#fff,transparent)}
+    /* ===== Hero (con video) ===== */
+    .hero{
+      padding:72px 16px 48px;
+      position:relative;
+      overflow:hidden;
+      background:#fff;
+    }
+    .hero-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,0.82);
+      z-index:1;
+    }
+    .hero .wrap{position:relative;z-index:2}
     .hero h1{font-size:clamp(32px,5vw,56px);margin:0 0 16px;color:var(--brand)}
     .muted{color:var(--muted)}
     .cta{
@@ -67,52 +119,260 @@
       box-shadow:0 6px 0 #d35f10;
     }
     .cta:active{transform:translateY(2px);box-shadow:0 4px 0 #d35f10}
-    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}
-    .chip{font-size:.9rem;color:#334155;background:#F1F5F9;border:1px solid #E2E8F0;padding:6px 12px;border-radius:999px}
 
-    /* ===== Layout base ===== */
+    /* Chips 3D estáticos */
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}
+    .chip{
+      font-size:.9rem;
+      color:#334155;
+      background:#F1F5F9;
+      border:1px solid #E2E8F0;
+      padding:6px 12px;
+      border-radius:999px;
+      box-shadow:0 6px 0 #E2E8F0;
+      user-select:none;
+      cursor:default;
+    }
+
+    /* ===== Base sections ===== */
     section{padding:56px 16px;border-top:1px solid var(--line);background:#fff}
-    h2{font-size:clamp(22px,4vw,32px);margin:0 0 8px;color:var(--brand)}
+    h2{font-size:clamp(22px,4vw,32px);margin:0 0 8px;color:var(--brand);font-weight:800}
     .grid{display:grid;gap:20px}
     @media(min-width:860px){
       .grid-3{grid-template-columns:repeat(3,1fr)}
       .grid-2{grid-template-columns:repeat(2,1fr)}
     }
-    .card{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.02)}
-    img{max-width:100%;height:auto;border-radius:12px}
 
-    /* ===== Servicios ===== */
-    #servicios.services-dark{background:var(--blue);padding:80px 16px}
-    #servicios.services-dark .muted{color:#E2E8F0}
-    #servicios.services-dark h2{color:#fff}
-    .service-card-dark{
-      background:var(--blue-2);
-      color:#F8FAFC;
-      border:1px solid #1F2632;
-      border-radius:16px;
-      padding:20px;
-      box-shadow:0 8px 0 var(--blue-3);
-      transition:transform .05s ease,box-shadow .15s ease,background .15s ease;
+    /* Offset para anclas con header sticky */
+    #inicio,#nosotros,#contacto{scroll-margin-top:98px}
+
+    /* ===== BLOQUE FULL WIDTH OSCURO ===== */
+    .ubicacion-dark{
+      width:100%;
+      background:linear-gradient(180deg,#0B1220,#020617);
+      padding:86px 16px;
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
     }
-    .service-card-dark:hover{background:#162033}
-    .service-card-dark h3{color:#fff;margin:10px 0 8px}
-    .service-card-dark p{color:#E5E7EB;margin:0}
-    .service-card-dark .thumb{display:block;width:100%;height:auto;border-radius:12px;margin:-4px 0 10px 0}
+
+    .ubicacion-grid{
+      display:grid;
+      gap:48px;
+      align-items:center;
+    }
+    @media(min-width:900px){
+      .ubicacion-grid{grid-template-columns:2fr 1fr}
+    }
+
+    .ubicacion-texto h2{
+      color:#F8FAFC;
+      margin:0 0 16px;
+      font-size:clamp(26px,4vw,38px);
+    }
+
+    .ubicacion-texto p{
+      color:#CBD5E1;
+      margin:0 0 14px;
+      max-width:900px;
+      line-height:1.75;
+    }
+    .ubicacion-texto strong{color:#fff}
+
+    .ubicacion-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    /* ====== BOTÓN WHATSAPP (3D + ícono redondeado) ====== */
+    .cta-whatsapp{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 18px 12px 16px;
+      border-radius:12px;
+      border:1px solid var(--wa-dark);
+      background:var(--wa);
+      color:#FFFFFF;
+      text-decoration:none;
+      font-weight:800;
+      box-shadow:0 6px 0 var(--wa-darker);
+      transition:transform .05s ease, filter .15s ease;
+      white-space:nowrap;
+    }
+    .cta-whatsapp:hover{filter:brightness(1.02)}
+    .cta-whatsapp:active{
+      transform:translateY(2px);
+      box-shadow:0 4px 0 var(--wa-darker);
+    }
+    .wa-icon{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      object-fit:cover;
+      display:block;
+      flex:0 0 34px;
+      background:transparent;
+    }
+
+    .ubicacion-imagen{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .ubicacion-imagen img{
+      width:240px;
+      height:240px;
+      border-radius:999px;
+      object-fit:cover;
+      border:4px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 40px rgba(2,6,23,.75);
+      background:#0B1220;
+    }
+    @media(max-width:768px){
+      .ubicacion-dark{padding:70px 16px}
+      .ubicacion-imagen img{width:185px;height:185px}
+    }
 
     /* ===== Nosotros ===== */
-    #nosotros.team-gray{background:var(--bg)}
-    #nosotros.team-gray h2{color:var(--brand)}
-    #nosotros.team-gray p.intro{max-width:900px}
-    .team-card{
+    #nosotros{background:#fff}
+    #nosotros p.intro{max-width:900px}
+
+    .about-grid{
+      display:grid;
+      gap:22px;
+      align-items:start;
+    }
+    @media(min-width:900px){
+      .about-grid{grid-template-columns: 1.3fr .7fr;}
+    }
+
+    .profile-card{
       background:var(--blue-2);
       color:#F8FAFC;
-      border:1px solid #1F2632;
+      border:1px solid var(--line-dark);
       border-radius:16px;
-      padding:20px;
+      padding:22px;
       box-shadow:0 8px 0 var(--blue-3);
     }
-    .team-card h3{color:#fff;margin:0 0 6px}
-    .team-card p{color:#E5E7EB;margin:0}
+    .profile-top{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom:14px;
+    }
+    .profile-img{
+      width:84px;
+      height:84px;
+      border-radius:999px;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,.25);
+      background:#0B1220;
+    }
+    .profile-name{
+      margin:0;
+      font-weight:800;
+      font-size:1.15rem;
+      color:#fff;
+      line-height:1.2;
+    }
+    .profile-role{
+      margin:4px 0 0;
+      color:#E5E7EB;
+      font-weight:600;
+      font-size:.95rem;
+    }
+    .profile-body{color:#E5E7EB;margin:0}
+    .profile-body b{color:#fff}
+
+    /* ===== Intervenciones documentadas (NO se corre el card) ===== */
+    .projects-wrap{
+      margin-top:34px;
+    }
+
+    /* mismo estilo visual de h2 (igual a "Nosotros") */
+    .projects-wrap h2{
+      margin:0 0 12px;
+      font-size:clamp(22px,4vw,32px);
+      font-weight:800;
+      color:var(--brand);
+    }
+
+    /* Layout fijo: texto a la izquierda + card a la derecha (como about-grid) */
+    .projects-grid{
+      display:grid;
+      gap:22px;
+      align-items:start;
+      margin-top:10px;
+    }
+    @media(min-width:900px){
+      .projects-grid{grid-template-columns: 1.3fr .7fr;}
+    }
+
+    .projects-text{
+      color:var(--muted);
+      max-width:900px;
+      line-height:1.75;
+      margin:0;
+    }
+
+    /* Card del proyecto = MISMO “cuerpo” que profile-card para igual ancho/estética */
+    .project-card{
+      background:var(--blue-2);
+      color:#F8FAFC;
+      border:1px solid var(--line-dark);
+      border-radius:16px;
+      padding:22px;
+      box-shadow:0 8px 0 var(--blue-3);
+    }
+
+    .project-top{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom:14px;
+    }
+    .project-img{
+      width:84px;
+      height:84px;
+      border-radius:999px;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,.25);
+      background:#0B1220;
+      flex:0 0 84px;
+    }
+    .project-name{
+      margin:0;
+      font-weight:900;
+      font-size:1.2rem;
+      color:#fff;
+      line-height:1.2;
+      letter-spacing:.2px;
+    }
+    .project-place{
+      margin:6px 0 0;
+      color:#E5E7EB;
+      font-weight:700;
+      opacity:.95;
+    }
+    .project-desc{
+      margin:10px 0 0;
+      color:#E5E7EB;
+      line-height:1.75;
+    }
+    .project-meta{
+      margin:14px 0 0;
+      color:#CBD5E1;
+      font-size:.95rem;
+      line-height:1.6;
+    }
+    .project-meta b{color:#fff}
+
+    /* Responsive: en móvil se apila (texto arriba, card abajo) */
+    @media(max-width:899px){
+      .projects-text{margin-bottom:10px}
+    }
 
     /* ===== Contacto ===== */
     #contacto.contact-panels{background:var(--blue);}
@@ -120,7 +380,7 @@
     .contact-card{
       background:#111827;
       color:#F8FAFC;
-      border:1px solid #1F2632;
+      border:1px solid var(--line-dark);
       border-radius:16px;
       padding:24px;
       box-shadow:0 8px 0 #0B1220;
@@ -161,12 +421,12 @@
 <body>
 <header>
   <div class="wrap nav">
-    <div class="brand">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
       <img src="logo.png" alt="Logo Grupo Axia">
       <div class="brand-title">Grupo Axia S.A.S</div>
-    </div>
+    </a>
     <nav>
-      <a href="#servicios">Servicios</a>
+      <a href="servicios.html">Servicios</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -175,7 +435,11 @@
 
 <main>
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="inicio">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="Loop.mp4" type="video/mp4">
+    </video>
+
     <div class="wrap">
       <div class="chips" style="margin-top:6px">
         <span class="chip">Diagnóstico técnico</span>
@@ -197,72 +461,114 @@
     </div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="services-dark">
-    <div class="wrap">
-      <h2>Servicios</h2>
-      <p class="muted">Diagnóstico, ejecución y garantía documentada.</p>
+  <!-- BLOQUE OSCURO FULL WIDTH -->
+  <section class="ubicacion-dark" id="ubicacion">
+    <div class="wrap ubicacion-grid">
+      <div class="ubicacion-texto">
+        <h2>Servicios con respaldo técnico — Bogotá y municipios aledaños</h2>
 
-      <div class="grid grid-3">
-        <div class="card service-card-dark">
-          <img class="thumb" src="Obras civiles.png" alt="Obras civiles">
-          <h3>Obras civiles</h3>
-          <p>Ejecución de obras menores, reparaciones, adecuaciones y pequeñas remodelaciones.</p>
-        </div>
+        <p>
+          <strong>Grupo Axia S.A.S.</strong> está ubicada en <strong>Bogotá D.C.</strong> y opera principalmente en la ciudad y sus
+          municipios aledaños, desarrollando intervenciones técnicas en edificaciones y propiedad horizontal.
+        </p>
 
-        <div class="card service-card-dark">
-          <img class="thumb" src="Mantenimiento general.png" alt="Mantenimiento general de Propiedad Horizontal">
-          <h3>Mantenimiento general de P.H.</h3>
-          <p>Resanes, pintura, sellos elásticos, corrección de filtraciones y rutinas preventivas.</p>
-        </div>
+        <p>
+          Nuestro enfoque se basa en una ruta clara de diagnóstico, ejecución controlada y entrega documentada,
+          garantizando seguridad, cumplimiento normativo y resultados verificables en cada proyecto.
+        </p>
 
-        <div class="card service-card-dark">
-          <img class="thumb" src="Obras hidrosanitarias.png" alt="Obras hidrosanitarias">
-          <h3>Obras hidrosanitarias</h3>
-          <p>Registros, reconexiones, cambio de tuberías, revisión técnica y pruebas de estanqueidad.</p>
-        </div>
+        <div class="ubicacion-actions">
+          <a href="servicios.html" class="cta">Ver todos los servicios</a>
 
-        <div class="card service-card-dark">
-          <img class="thumb" src="Mantenimiento tecnico e industrial.png" alt="Mantenimiento técnico e industrial">
-          <h3>Mantenimiento técnico e industrial</h3>
-          <p>Apoyo a áreas técnicas con protocolos de seguridad, correctivos y programaciones.</p>
+          <a href="https://wa.me/573229217017" target="_blank" rel="noopener" class="cta-whatsapp">
+            <img class="wa-icon" src="whatsapp.png" alt="WhatsApp">
+            Cotizar por WhatsApp
+          </a>
         </div>
+      </div>
 
-        <div class="card service-card-dark">
-          <img class="thumb" src="Administracion tecnica.png" alt="Administración técnica para Propiedad Horizontal">
-          <h3>Administración técnica para P.H.</h3>
-          <p>Soporte técnico, priorización de intervenciones y trazabilidad de mantenimientos.</p>
-        </div>
-
-        <div class="card service-card-dark">
-          <img class="thumb" src="Acabados arquitectonicos.png" alt="Acabados arquitectónicos">
-          <h3>Acabados arquitectónicos</h3>
-          <p>Estuco y pintura, enchapes, sellos, carpinterías y detalles finos.</p>
-        </div>
+      <div class="ubicacion-imagen">
+        <img src="Bandera.PNG" alt="Bogotá D.C. - Colombia">
       </div>
     </div>
   </section>
 
   <!-- NOSOTROS -->
-  <section id="nosotros" class="team-gray">
+  <section id="nosotros">
     <div class="wrap">
       <h2>Nosotros</h2>
-      <p class="intro">En <b>Grupo Axia S.A.S</b> combinamos ingeniería, administración y operaciones para asegurar calidad y cumplimiento en cada proyecto.</p>
 
-      <div class="grid grid-3">
-        <div class="team-card">
-          <h3>Víctor Manuel Santana</h3>
-          <p>Director Técnico — Control técnico y supervisión de obra.</p>
+      <div class="about-grid">
+        <div>
+          <p class="intro">
+            En <b>Grupo Axia S.A.S</b> integramos ingeniería civil, gestión administrativa y operación en campo para asegurar
+            calidad y cumplimiento en cada intervención. Nuestro estándar se basa en planificación, ejecución ordenada,
+            control de calidad y entrega documentada.
+          </p>
+
+          <p class="muted" style="max-width:900px;margin:12px 0 0">
+            Trabajamos con enfoque preventivo y correctivo para propiedad horizontal, priorizando seguridad, durabilidad,
+            buenas prácticas de obra, comunicación clara con la administración y una trazabilidad que respalde cada decisión técnica.
+          </p>
         </div>
-        <div class="team-card">
-          <h3>Sharon Vásquez</h3>
-          <p>Gerente Administrativa — Operación, presupuestos y atención al cliente.</p>
-        </div>
-        <div class="team-card">
-          <h3>Andrés Rodríguez</h3>
-          <p>Coordinador de Operaciones — Ejecución en campo y seguridad.</p>
+
+        <aside class="profile-card">
+          <div class="profile-top">
+            <img class="profile-img" src="Representante.PNG" alt="Representante legal - Grupo Axia S.A.S">
+            <div>
+              <p class="profile-name">Laurence Vásquez</p>
+              <p class="profile-role">Representante Legal</p>
+            </div>
+          </div>
+
+          <p class="profile-body">
+            Formación en <b>Ingeniería Civil</b> por la <b>Universidad Nacional de Colombia</b>.
+            Enfocado en la estructuración técnica y operativa de proyectos, control de alcance, cumplimiento y calidad,
+            con visión de largo plazo para consolidar una empresa confiable y con procesos claros.
+          </p>
+        </aside>
+      </div>
+
+      <!-- Intervenciones documentadas (título igual a "Nosotros" + layout fijo para que NO se corra) -->
+      <div class="projects-wrap">
+        <h2>Intervenciones documentadas</h2>
+
+        <div class="projects-grid">
+          <!-- Texto a la izquierda (rellena el espacio sin mover el card) -->
+          <p class="projects-text">
+            Cada intervención se desarrolla con comunicación clara, acompañamiento permanente y respeto por los espacios intervenidos.
+            Priorizamos un trato responsable con administraciones y residentes: informamos avances, coordinamos accesos y minimizamos
+            afectaciones en zonas comunes, manteniendo orden en obra y cuidado por la convivencia.
+            <br><br>
+            Nuestro compromiso es que la experiencia del cliente sea tan sólida como el resultado técnico: transparencia en el alcance,
+            cumplimiento de lo acordado y una ejecución que genere confianza antes, durante y después del proyecto.
+          </p>
+
+          <!-- Card a la derecha (mismo ancho/estética que el de Laurence) -->
+          <div class="project-card">
+            <div class="project-top">
+              <img class="project-img" src="Edificio.PNG" alt="APA P.H. - Bogotá D.C.">
+              <div>
+                <p class="project-name">APA P.H.</p>
+                <p class="project-place">Bogotá D.C.</p>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              Intervención de mantenimiento correctivo en propiedad horizontal, desarrollada con diagnóstico previo,
+              ejecución controlada y entrega documentada. Las actividades se gestionan con enfoque en seguridad,
+              cumplimiento, control de alcance y trazabilidad, asegurando resultados verificables para administración y residentes.
+            </p>
+
+            <p class="project-meta">
+              <b>Tipo de proyecto:</b> Mantenimiento correctivo ·
+              <b>Cliente:</b> Propiedad Horizontal ·
+              <b>Estado:</b> Ejecutado y documentado
+            </p>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -274,11 +580,14 @@
         <div class="contact-card">
           <h3>Conversemos</h3>
           <p>
+            <b>Grupo Axia S.A.S.</b><br>
+            <b>NIT:</b> 902012461-6<br><br>
+
             WhatsApp:
             <a href="https://wa.me/573229217017" target="_blank" rel="noopener">+57 322 921 7017</a><br>
             Correo:
             <a href="mailto:gerencia@grupaxia.com">gerencia@grupaxia.com</a><br>
-            Bogotá, Colombia
+            Bogotá D.C., Colombia
           </p>
         </div>
 
@@ -312,3 +621,4 @@
 </script>
 </body>
 </html>
+
