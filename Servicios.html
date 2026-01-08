@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Servicios — Grupo Axia S.A.S</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Servicios técnicos integrales en propiedad horizontal y edificaciones. Grupo Axia S.A.S.">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0F172A;
+      --panel:#111827;
+      --panel-2:#0B1220;
+      --text:#F8FAFC;
+      --muted:#CBD5E1;
+      --accent:#F97316;
+      --line:#1F2632;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:auto;
+      padding:0 16px;
+    }
+
+    /* ===== Header ===== */
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:#111827;
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:80px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:#fff;
+    }
+
+    .brand img{height:48px}
+
+    .brand-title{
+      font-family:'Inter',sans-serif;
+      font-size:1.5rem;
+      font-weight:700;
+    }
+
+    nav a{
+      color:#E5E7EB;
+      text-decoration:none;
+      margin-left:18px;
+      font-weight:600;
+    }
+
+    nav a:hover{color:var(--accent)}
+
+    /* ===== Sections base ===== */
+    section{padding:72px 16px}
+
+    /* ===== HERO Servicios FULL WIDTH (como Home) ===== */
+    .services-hero{
+      position:relative;
+      overflow:hidden;
+      padding:92px 0 72px;
+      /* full-bleed */
+      width:100%;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:#0B1220;
+    }
+
+    .services-hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:0;
+    }
+
+    /* Overlay oscuro (déjalo) */
+    .services-hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        180deg,
+        rgba(2,6,23,.68),
+        rgba(2,6,23,.82)
+      );
+      z-index:1;
+    }
+
+    .services-hero .wrap{
+      position:relative;
+      z-index:2;
+    }
+
+    .services-hero h1{
+      font-size:clamp(34px,5vw,56px);
+      margin:0 0 14px;
+      color:#fff;
+    }
+
+    .services-hero p{
+      margin:0;
+      max-width:900px;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    /* ===== Servicios grid ===== */
+    .services-section{
+      padding:64px 16px 88px;
+    }
+
+    .services-grid{
+      display:grid;
+      gap:22px;
+    }
+
+    @media(min-width:900px){
+      .services-grid{grid-template-columns:repeat(3,1fr)}
+    }
+
+    .service-card{
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 10px 0 #020617;
+    }
+
+    .service-card img{
+      width:100%;
+      border-radius:14px;
+      margin-bottom:14px;
+      display:block;
+    }
+
+    .service-card h3{
+      margin:0 0 8px;
+      font-size:1.15rem;
+      color:#fff;
+    }
+
+    .service-card p{
+      margin:0;
+      color:#CBD5E1;
+      font-size:.95rem;
+    }
+
+    /* ===== CTA ===== */
+    .actions{
+      margin-top:48px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .cta{
+      padding:12px 18px;
+      border-radius:12px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid var(--accent);
+      box-shadow:0 6px 0 #d35f10;
+    }
+
+    .cta:active{
+      transform:translateY(2px);
+      box-shadow:0 4px 0 #d35f10;
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      padding:32px 16px;
+      background:#020617;
+      border-top:1px solid var(--line);
+      text-align:center;
+      color:#94A3B8;
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html#inicio">
+      <img src="logo.png" alt="Grupo Axia">
+      <div class="brand-title">Grupo Axia S.A.S</div>
+    </a>
+    <nav>
+      <a href="servicios.html">Servicios</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO FULL WIDTH (de extremo a extremo) -->
+  <section class="services-hero">
+    <video autoplay muted loop playsinline>
+      <source src="Loop.mp4" type="video/mp4">
+    </video>
+
+    <div class="wrap">
+      <h1>Servicios</h1>
+      <p>
+        En <b>Grupo Axia S.A.S.</b> ofrecemos soluciones técnicas integrales para propiedad horizontal y edificaciones,
+        con un enfoque claro en diagnóstico, ejecución controlada y entrega documentada. Cada servicio está estructurado
+        para garantizar seguridad, cumplimiento y durabilidad, priorizando siempre una intervención ordenada y verificable.
+      </p>
+    </div>
+  </section>
+
+  <!-- TARJETAS (sin cambios de estilo) -->
+  <section class="services-section">
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="Obras civiles.png" alt="Obras civiles">
+          <h3>Obras civiles</h3>
+          <p>
+            Ejecutamos obras menores y adecuaciones puntuales, abordando reparaciones,
+            ajustes y correcciones constructivas con planificación, control técnico
+            y cierre documentado.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <img src="Mantenimiento general.png" alt="Mantenimiento general de Propiedad Horizontal">
+          <h3>Mantenimiento general de Propiedad Horizontal</h3>
+          <p>
+            Actividades preventivas y correctivas enfocadas en conservar la
+            funcionalidad, estética y durabilidad de las edificaciones.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <img src="Obras hidrosanitarias.png" alt="Obras hidrosanitarias">
+          <h3>Obras hidrosanitarias</h3>
+          <p>
+            Diagnóstico técnico, reparación de fugas, reconexiones y pruebas de
+            estanqueidad con intervención controlada.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <img src="Mantenimiento tecnico e industrial.png" alt="Mantenimiento técnico e industrial">
+          <h3>Mantenimiento técnico e industrial</h3>
+          <p>
+            Apoyo técnico especializado con protocolos de seguridad,
+            correctivos programados y trazabilidad.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <img src="Administracion tecnica.png" alt="Administración técnica para Propiedad Horizontal">
+          <h3>Administración técnica para P.H.</h3>
+          <p>
+            Soporte ingenieril para priorización de intervenciones,
+            seguimiento técnico y toma de decisiones.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <img src="Acabados arquitectonicos.png" alt="Acabados arquitectónicos">
+          <h3>Acabados arquitectónicos</h3>
+          <p>
+            Estuco, pintura, enchapes y correcciones por deterioro o humedad,
+            con entrega limpia y lista para uso.
+          </p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="cta" href="index.html#contacto">Ir a contacto</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="y"></span> Grupo Axia S.A.S · Todos los derechos reservados
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
